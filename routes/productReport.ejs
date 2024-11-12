@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Product Report</title>
+        <style>
+            body { 
+                font-family: Arial,sans-serif; 
+                }
+
+            table {
+                width: 100%; 
+                border-collapse: collapse; 
+            }
+            th, td { 
+                border: 1px solid #000; 
+                padding: 8px;
+                text-align: left; 
+            }
+        </style>
+    </head>
+    
+    <body>
+        <h3 style="text-align: center;">Cafe Management System</h3>
+        <table>
+            <tr>
+                <th>Name: <%= name %></th>
+                <th>Email: <%= email %></th>
+            <tr>
+                <th>Contact Number: <%= contactNumber %></th>
+                <th>Payment Method: <%= paymentMethod %></th>
+            </tr>
+        </table>
+        
+        <h3>Product Details:</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Sub Total</th>
+            </tr>
+            <% if (productDetails.length > 0) { %>
+                <% productDetails.forEach(product => { %>
+                    <tr>
+                        <td><%= product.name %></td>
+                        <td><%= product.category %></td>
+                        <td><%= product.quantity %></td>
+                        <td><%= product.price %></td>
+                        <td><%= product.total %></td>
+                    </tr>
+                <% }); %>
+            <% } %>
+        </table>
+        <h3>Total: <%= totalAmount %></h3>
+        <h3>Thank you for visiting, Please visit again!</h3>
+    </body>
+</html>
